@@ -37,7 +37,7 @@ class BSTTestCase(unittest.TestCase):
         self.assertEqual(bst.largest(),30)
 
         #Test search
-        self.assertEqual(bst.searche(5), True)
+        self.assertEqual(bst.search(10), [1])
       
         
 
