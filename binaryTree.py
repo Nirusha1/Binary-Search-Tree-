@@ -31,33 +31,7 @@ class BinarySearchTree:
             y.right=z
         self._size +=1
 
-    def search(self, v):
-        if self._root.key == v:
-            return True
-        elif self._root.key > v:
-            if self._root.left == v:
-                return True
-            else:
-                return self._root.left.search(v)
-        elif self._root.key < v:
-            if self._root.right ==v:
-                return True
-        return None
-            
-
-    def searche(x,k):
-        if x==None | x.key==k:
-            return x
-        if x<x.key:
-            return searche(x.left, k)
-        else:
-            return searche(x.right, k)
-
-
-
-
-
-
+   
 
     def smallest(self):
         if self._root is not None:
@@ -72,11 +46,22 @@ class BinarySearchTree:
             while current.right is not None:
                 current = current.right
             return current.key
-
     
- 
-                
-           
+    def search(self, key):
+        found = []
+        self._searchForNode(self._root, key, found)
+	    return found
+
+    def _search(self, subtree, key, found):
+	if(subtree):
+            if(key == subtree.key):
+                found.append(1)
+	    elif(key < subtree.key):
+		self._searchForNode(subtree.left, key, found)
+	    elif(key > subtree.key):
+		self._searchForNode(subtree.right, key, found)
+    
+
 
     def is_empty(self):
         return self._size==0
